@@ -31,8 +31,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * This class makes it easy to create a JSON object out of a JCR node. It is a shameless copy of {@link JsonItemWriter},
- * but instead of writing the resulting JSON directly to an output, you get a JSONObject that you can deal with.
+ * This class makes it easy to create a JSON object out of a JCR node. It is a
+ * shameless copy of {@link JsonItemWriter},
+ * but instead of writing the resulting JSON directly to an output, you get a
+ * JSONObject that you can deal with.
  *
  * @author vidar@idium.no
  * @since Apr 17, 2009 6:55:30 PM
@@ -44,27 +46,38 @@ public class JsonJcrNode extends JSONObject {
     private Set<String> propertyNamesToIgnore;
 
     /**
-     * Creates a JSONObject out of <code>node</code>. All <code>node</code>'s properties will be reflected in the JSON
-     * object. In addition, properties <code>jcr:path</code> and <code>jcr:name</code> are added. Their values are
-     * those returned by <code>node.getPath()</code> and <code>node.getName()</code>, respectively.
+     * Creates a JSONObject out of <code>node</code>. All <code>node</code>'s
+     * properties will be reflected in the JSON
+     * object. In addition, properties <code>jcr:path</code> and
+     * <code>jcr:name</code> are added. Their values are
+     * those returned by <code>node.getPath()</code> and
+     * <code>node.getName()</code>, respectively.
+     * 
      * @param node The JCR node to use
-     * @throws JSONException If there's a problem generating the JSON object
-     * @throws RepositoryException If there's a problem reading data from the JCR repository
+     * @throws JSONException       If there's a problem generating the JSON object
+     * @throws RepositoryException If there's a problem reading data from the JCR
+     *                             repository
      */
     public JsonJcrNode(Node node) throws JSONException, RepositoryException {
         this(node, null);
     }
 
     /**
-     * Creates a <code>JSONObject</code> out of <code>node</code>. All <code>node</code>'s properties will be reflected
-     * in the JSON object, except those in <code>propertyNamesToIgnore</code>. In addition, properties
-     * <code>jcr:path</code> and <code>jcr:name</code> are added. Their values are those returned by
+     * Creates a <code>JSONObject</code> out of <code>node</code>. All
+     * <code>node</code>'s properties will be reflected
+     * in the JSON object, except those in <code>propertyNamesToIgnore</code>. In
+     * addition, properties
+     * <code>jcr:path</code> and <code>jcr:name</code> are added. Their values are
+     * those returned by
      * <code>node.getPath()</code> and <code>node.getName()</code>, respectively.
-     * @param node The JCR node to use
-     * @param propertyNamesToIgnore A set of property names that should <em>not</em> be reflected in the resulting
-     * JSON object.
-     * @throws JSONException If there's a problem generating the JSON object
-     * @throws RepositoryException If there's a problem reading data from the JCR repository
+     * 
+     * @param node                  The JCR node to use
+     * @param propertyNamesToIgnore A set of property names that should <em>not</em>
+     *                              be reflected in the resulting
+     *                              JSON object.
+     * @throws JSONException       If there's a problem generating the JSON object
+     * @throws RepositoryException If there's a problem reading data from the JCR
+     *                             repository
      */
     public JsonJcrNode(Node node, Set<String> propertyNamesToIgnore) throws JSONException, RepositoryException {
         this.node = node;
@@ -150,6 +163,5 @@ public class JsonJcrNode extends JSONObject {
                 this.accumulate(key, v.getString());
         }
     }
-
 
 }

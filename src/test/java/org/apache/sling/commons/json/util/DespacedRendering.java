@@ -25,33 +25,35 @@ import org.apache.sling.commons.json.JSONObject;
 /** Test the String formatting functionality of JSONObject */
 public class DespacedRendering {
     private final String despaced;
-    
-    /** Simplify whitespace in str and replace quotes
-     *  to make it easier to compare the output 
-     *  @param spaceReplacement replaces spaces after the first one
-     *  */ 
+
+    /**
+     * Simplify whitespace in str and replace quotes
+     * to make it easier to compare the output
+     * 
+     * @param spaceReplacement replaces spaces after the first one
+     */
     public DespacedRendering(String str, String spaceReplacement) throws JSONException {
-        
+
         boolean previousWasSpace = false;
-        
+
         // Verify that str parses
         new JSONObject(str);
-        
+
         // And convert whitespace and quotes to
         // make comparisons easier
         final StringBuilder sb = new StringBuilder();
-        for(int i=0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             final Character c = str.charAt(i);
-            final boolean isWhitespace = Character.isWhitespace(c); 
-            if(c == '\n') {
+            final boolean isWhitespace = Character.isWhitespace(c);
+            if (c == '\n') {
                 sb.append("-nl-");
-            } else if(isWhitespace) {
-                if(previousWasSpace && spaceReplacement != null) {
+            } else if (isWhitespace) {
+                if (previousWasSpace && spaceReplacement != null) {
                     sb.append(spaceReplacement);
                 }
-            } else if(c == '\"') {
+            } else if (c == '\"') {
                 sb.append("_");
-            } else if(c == '\"') {
+            } else if (c == '\"') {
                 sb.append("-dq-");
             } else {
                 sb.append(c);
@@ -60,24 +62,23 @@ public class DespacedRendering {
         }
         despaced = sb.toString();
     }
-    
+
     public DespacedRendering(String str) throws JSONException {
         this(str, null);
     }
-    
 
-    public DespacedRendering expect(String ...expected) {
-        for(String e : expected) {
+    public DespacedRendering expect(String... expected) {
+        for (String e : expected) {
             assertTrue("Expecting " + e + " to be contained in " + despaced, despaced.contains(e));
         }
         return this;
     }
-    
+
     public DespacedRendering assertExactMatch(String expected) {
         assertEquals("Expecting an exact match with " + expected + " at " + despaced, expected, despaced);
         return this;
     }
-    
+
     public DespacedRendering expectLength(int n) {
         assertEquals("Expecting a String length of " + n + " for " + despaced, n, despaced.length());
         return this;

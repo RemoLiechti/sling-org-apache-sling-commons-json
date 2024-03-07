@@ -2,3 +2,5 @@
 target
 src/test/java/org/apache/sling/commons/json/CVE.java
 src/test/java/org/apache/sling/commons/json/overflowXml.txt
+.DS_Store
+settings.json

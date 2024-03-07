@@ -44,21 +44,22 @@ public class JsonItemWriter {
     private static DateFormat calendarFormat;
 
     private final Set<String> propertyNamesToIgnore;
-    
+
     /** Used to format date values */
     public static final String ECMA_DATE_FORMAT = "EEE MMM dd yyyy HH:mm:ss 'GMT'Z";
-    
+
     /** Used to format date values */
     public static final Locale DATE_FORMAT_LOCALE = Locale.US;
-
 
     /**
      * Create a JsonItemWriter
      * 
      * @param propertyNamesToIgnore if not null, a property having a name from
-     *            this set of values is ignored. TODO we should use a filtering
-     *            interface to make the selection of which Nodes and Properties
-     *            to dump more flexible.
+     *                              this set of values is ignored. TODO we should
+     *                              use a filtering
+     *                              interface to make the selection of which Nodes
+     *                              and Properties
+     *                              to dump more flexible.
      */
     public JsonItemWriter(Set<String> propertyNamesToIgnore) {
         this.propertyNamesToIgnore = propertyNamesToIgnore;
@@ -87,12 +88,14 @@ public class JsonItemWriter {
 
     /**
      * Dump given node in JSON, optionally recursing into its child nodes
+     * 
      * @param tidy if <code>true</code> the json dump is nicely formatted
+     * @deprecated the tidy mode was removed from the json library
      */
+    @Deprecated
     public void dump(Node node, Writer w, int maxRecursionLevels, boolean tidy)
             throws RepositoryException, JSONException {
         JSONWriter jw = new JSONWriter(w);
-        jw.setTidy(tidy);
         dump(node, jw, 0, maxRecursionLevels);
     }
 
@@ -117,7 +120,7 @@ public class JsonItemWriter {
             Property prop = props.nextProperty();
 
             if (propertyNamesToIgnore != null
-                && propertyNamesToIgnore.contains(prop.getName())) {
+                    && propertyNamesToIgnore.contains(prop.getName())) {
                 continue;
             }
 
@@ -150,7 +153,7 @@ public class JsonItemWriter {
     protected boolean recursionLevelActive(int currentRecursionLevel,
             int maxRecursionLevels) {
         return maxRecursionLevels < 0
-            || currentRecursionLevel < maxRecursionLevels;
+                || currentRecursionLevel < maxRecursionLevels;
     }
 
     /**
@@ -192,7 +195,9 @@ public class JsonItemWriter {
 
     /**
      * Writes the given value to the JSON writer. currently the following
-     * conversions are done: <table><caption></caption>
+     * conversions are done:
+     * <table>
+     * <caption></caption>
      * <tr>
      * <th>JSR Property Type</th>
      * <th>JSON Value Type</th>
@@ -222,7 +227,8 @@ public class JsonItemWriter {
      * </td>
      * <td>string</td>
      * </tr>
-     * </table> <sup>1</sup> Currently not implemented and uses 0 as default.
+     * </table>
+     * <sup>1</sup> Currently not implemented and uses 0 as default.
      * 
      * @param w json writer
      * @param v value to dump
