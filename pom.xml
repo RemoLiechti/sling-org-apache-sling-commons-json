@@ -84,6 +84,50 @@
 						<exclude>src/main/java/org/apache/sling/commons/json/xml/XMLParserConfiguration.java</exclude>
 						<exclude>src/main/java/org/apache/sling/commons/json/xml/XMLTokener.java</exclude>
 						<exclude>src/main/java/org/apache/sling/commons/json/xml/XMLXsiTypeConverter.java</exclude>
+						<exclude>src/test/resources/Issue593.xml</exclude>
+						<exclude>src/test/resources/Issue537.xml</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONTokenerTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONObjectLocaleTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONMLTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/util/Util.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/util/CDLTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/util/PropertyTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONObjectNumberTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONObjectTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/io/JSONStringerTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONArrayTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/xml/XMLTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/xml/XMLConfigurationTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/EnumTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/CookieTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/CookieListTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/http/HTTPTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONStringTest.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/Fraction.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/WeirdList.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/ExceptionalBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/GenericBeanInt.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyPublicClass.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBeanCustomName.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyEnumField.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/Singleton.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyNumber.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/RecursiveBeanEquals.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/BrokenToString.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBeanCustomNameInterface.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/GenericBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/StringsResourceBundle.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBeanCustomNameSubClass.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBigNumberBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyNumberContainer.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/SingletonEnum.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyEnum.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/RecursiveBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyEnumClass.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyLocaleBean.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/data/MyJsonString.java</exclude>
+						<exclude>src/test/java/org/apache/sling/commons/json/JSONPointerTest.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
