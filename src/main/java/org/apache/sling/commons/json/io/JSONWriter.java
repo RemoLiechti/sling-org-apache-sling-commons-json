@@ -419,4 +419,13 @@ public class JSONWriter {
     public JSONWriter value(Object object) throws JSONException {
         return this.append(valueToString(object));
     }
+
+    /**
+     * @deprecated do not use, was removed from library and later stubbed
+     */
+    @Deprecated
+    public void setTidy(boolean tidy) {
+        // stubbed as this was removed from the library but still is referenced from
+        // customer code
+    }
 }
