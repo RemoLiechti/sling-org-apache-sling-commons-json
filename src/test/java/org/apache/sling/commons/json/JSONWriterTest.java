@@ -51,10 +51,10 @@ public class JSONWriterTest {
         JSONArray arr = new JSONArray();
         arr.put(1).put("two").put(3.0).put(false);
 
-        JSONObject o = new JSONObject()
-                .put("foo", "bar")
-                .put("array", arr);
-        // w.push(o);
+        w.writeObject(
+                new JSONObject()
+                        .put("foo", "bar")
+                        .put("array", arr));
 
         return new DespacedRendering(output.toString());
     }

@@ -1,7 +1,9 @@
 package org.apache.sling.commons.json.io;
 
 import java.io.IOException;
+import java.io.Writer;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.sling.commons.json.JSONArray;
@@ -96,6 +98,13 @@ public class JSONWriter {
         this.stack = new JSONObject[maxdepth];
         this.top = 0;
         this.writer = w;
+    }
+
+    /**
+     * Make a fresh JSONWriter. It can be used to build one JSON text.
+     */
+    public JSONWriter(Writer w) {
+        this((Appendable) w);
     }
 
     /**
@@ -428,4 +437,85 @@ public class JSONWriter {
         // stubbed as this was removed from the library but still is referenced from
         // customer code
     }
+
+    /**
+     * @deprecated do not use, was removed from library and later stubbed
+     */
+    @Deprecated
+    public boolean isTidy() {
+        // stubbed as this was removed from the library but still is referenced from
+        // customer code
+        return true;
+    }
+
+    /**
+     * Append a JSON Object
+     *
+     * @param o
+     * @return
+     * @throws JSONException
+     */
+    public JSONWriter writeObject(JSONObject o) throws JSONException {
+        Iterator<String> keys = o.keys();
+
+        this.object();
+
+        while (keys.hasNext()) {
+            String key = keys.next();
+
+            this.key(key);
+
+            JSONObject objVal = o.optJSONObject(key);
+            if (objVal != null) {
+                this.writeObject(objVal);
+                continue;
+            }
+
+            JSONArray arrVal = o.optJSONArray(key);
+            if (arrVal != null) {
+                this.writeArray(arrVal);
+                continue;
+            }
+
+            Object obj = o.opt(key);
+            this.value(obj);
+        }
+
+        this.endObject();
+
+        return this;
+    }
+
+    /**
+     * Append a JSON Array
+     *
+     * @param a
+     * @return
+     * @throws JSONException
+     */
+    public JSONWriter writeArray(JSONArray a) throws JSONException {
+        this.array();
+
+        for (int i = 0; i < a.length(); i++) {
+            JSONObject objVal = a.optJSONObject(i);
+            if (objVal != null) {
+                this.writeObject(objVal);
+                continue;
+            }
+
+            JSONArray arrVal = a.optJSONArray(i);
+            if (arrVal != null) {
+                this.writeArray(arrVal);
+                continue;
+            }
+
+            Object obj = a.opt(i);
+            this.value(obj);
+        }
+
+        this.endArray();
+
+        return this;
+    }
+
 }
